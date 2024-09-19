@@ -1,0 +1,674 @@
+---
+import "../styles.scss";
+import { getLocale } from "astro-i18n-aut";
+
+const locale = getLocale(Astro.url);
+let siteTitle: string;
+siteTitle = "The Kitchen Sink";
+
+let aboutLinkTitle: string;
+let servicesLinkTitle: string;
+let contactLinkTitle: string;
+let allRightsReservedText: string;
+let currentLanguageText: string;
+let englishLanguageName: string;
+let germanLanguageName: string;
+let arabicLanguageName: string;
+let localeTitleSuffix: string;
+let textDirectionStr: string;
+let toggleThemeText: string;
+let lightText: string;
+let darkText: string;
+let autoText: string;
+let cookieBannerText: string;
+let learnMoreCookiesText: string;
+let cookieSettingsText: string;
+let acceptAllCookiesText: string;
+let necessaryCookiesText: string;
+let necessaryCookiesDescText: string;
+let analyticsCookiesText: string;
+let analyticsCookiesDescText: string;
+let advertisingCookiesText: string;
+let advertisingCookiesDescText: string;
+let closeBtnText: string;
+let savePreferencesText: string;
+
+switch (locale) {
+  case "ar":
+    aboutLinkTitle = "حول";
+    servicesLinkTitle = "الخدمات";
+    contactLinkTitle = "اتصل";
+    allRightsReservedText = "جميع الحقوق محفوظة";
+    currentLanguageText = "اللغة";
+    englishLanguageName = "الإنجليزية";
+    germanLanguageName = "الألمانية";
+    arabicLanguageName = "العربية";
+    localeTitleSuffix = "(ar)";
+    textDirectionStr = "rtl";
+    toggleThemeText = "تبديل الموضوع";
+    lightText = "ضوء";
+    darkText = "مظلم";
+    autoText = "اوتوماتيكي";
+    cookieBannerText =
+      "يستخدم هذا الموقع ملفات تعريف الارتباط لضمان حصولك على أفضل تجربة.";
+    learnMoreCookiesText = "تعرف على المزيد حول ملفات تعريف الارتباط";
+    cookieSettingsText = "إعدادات ملفات تعريف الارتباط";
+    acceptAllCookiesText = "قبول جميع ملفات تعريف الارتباط";
+    necessaryCookiesText = "ملفات تعريف الارتباط الضرورية";
+    necessaryCookiesDescText =
+      "هذه الملفات ضرورية لتشغيل الموقع ولا يمكن تعطيلها.";
+    analyticsCookiesText = "ملفات تعريف الارتباط للتحليل والأداء";
+    analyticsCookiesDescText =
+      "تساعدنا هذه الملفات على فهم كيفية تفاعل الزوار مع موقعنا، مما يوفر رؤى لتحسين الأداء.";
+    advertisingCookiesText = "ملفات تعريف الارتباط الإعلانية";
+    advertisingCookiesDescText =
+      "تُستخدم هذه الملفات لتقديم إعلانات ذات صلة وتتبع أداء الإعلانات.";
+    closeBtnText = "إغلاق";
+    savePreferencesText = "حفظ التفضيلات";
+    break;
+
+  case "de":
+    aboutLinkTitle = "Über uns";
+    servicesLinkTitle = "Dienstleistungen";
+    contactLinkTitle = "Kontakt";
+    allRightsReservedText = "Alle Rechte vorbehalten";
+    currentLanguageText = "Sprache";
+    englishLanguageName = "Englisch";
+    germanLanguageName = "Deutsch";
+    arabicLanguageName = "Arabisch";
+    localeTitleSuffix = "(de)";
+    textDirectionStr = "ltr";
+    toggleThemeText = "Design umschalten";
+    lightText = "Licht";
+    darkText = "Dunkel";
+    autoText = "Automatisch";
+    cookieBannerText =
+      "Diese Website verwendet Cookies, um sicherzustellen, dass Sie die beste Erfahrung erhalten.";
+    learnMoreCookiesText = "Erfahren Sie mehr über Cookies";
+    cookieSettingsText = "Cookie-Einstellungen";
+    acceptAllCookiesText = "Alle Cookies akzeptieren";
+    necessaryCookiesText = "Notwendige Cookies";
+    necessaryCookiesDescText =
+      "Diese Cookies sind unerlässlich für die Funktion der Website und können nicht deaktiviert werden.";
+    analyticsCookiesText = "Analyse- und Leistungs-Cookies";
+    analyticsCookiesDescText =
+      "Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, und bieten Einblicke zur Verbesserung der Leistung.";
+    advertisingCookiesText = "Werbe-Cookies";
+    advertisingCookiesDescText =
+      "Diese Cookies werden verwendet, um relevante Werbung bereitzustellen und die Leistung von Werbung zu verfolgen.";
+    closeBtnText = "Schließen";
+    savePreferencesText = "Einstellungen speichern";
+    break;
+
+  default:
+    aboutLinkTitle = "About";
+    servicesLinkTitle = "Services";
+    contactLinkTitle = "Contact";
+    allRightsReservedText = "All Rights Reserved";
+    currentLanguageText = "Language";
+    englishLanguageName = "English";
+    germanLanguageName = "German";
+    arabicLanguageName = "Arabic";
+    localeTitleSuffix = "";
+    textDirectionStr = "ltr";
+    toggleThemeText = "Toggle theme";
+    lightText = "Light";
+    darkText = "Dark";
+    autoText = "Auto";
+    cookieBannerText =
+      "This website uses cookies to ensure you get the best experience.";
+    learnMoreCookiesText = "Learn more about cookies";
+    cookieSettingsText = "Cookie Settings";
+    acceptAllCookiesText = "Accept All Cookies";
+    necessaryCookiesText = "Necessary Cookies";
+    necessaryCookiesDescText =
+      "These cookies are essential for the website to function and cannot be disabled.";
+    analyticsCookiesText = "Analytics and Performance Cookies";
+    analyticsCookiesDescText =
+      "These cookies help us understand how visitors interact with our website, providing insights to improve performance.";
+    advertisingCookiesText = "Advertising Cookies";
+    advertisingCookiesDescText =
+      "These cookies are used to deliver relevant advertisements and track ad performance.";
+    closeBtnText = "Close";
+    savePreferencesText = "Save preferences";
+}
+
+const urlPath = new URL(Astro.url.href).pathname;
+
+// Function to get the last segment of the path
+const getLastSegment = (path) => {
+  // Remove leading and trailing slashes, then split by slashes and get the last part
+  var lastPart = path
+    .replace(/^\/|\/$/g, "")
+    .split("/")
+    .pop();
+  if (lastPart == "de" || lastPart == "ar" || lastPart == "") {
+    return "";
+  } else {
+    return lastPart + "/";
+  }
+};
+
+const lastSegment = getLastSegment(urlPath);
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang={locale} dir={textDirectionStr} class="h-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>
+      {siteTitle}
+      {localeTitleSuffix} | {title}
+    </title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Ubuntu+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href={`/${locale}/`}>{siteTitle}</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href={`/${locale}/services/`}
+                  >{servicesLinkTitle}</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href={`/${locale}/about/`}
+                  >{aboutLinkTitle}</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href={`/${locale}/contact/`}
+                  >{contactLinkTitle}</a
+                >
+              </li>
+            </ul>
+            <ul class="navbar-nav align-items-center-lg">
+              <li class="nav-item dropdown">
+                <button
+                  class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center"
+                  id="bd-theme"
+                  type="button"
+                  aria-expanded="false"
+                  data-bs-toggle="dropdown"
+                  data-bs-display="static"
+                  aria-label={toggleThemeText}
+                >
+                  <i class="bi-sun-fill my-1 theme-icon-active"></i>
+                  <span class="d-lg-none ms-2" id="bd-theme-text"
+                    >{toggleThemeText}</span
+                  >
+                </button>
+                <ul
+                  class="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="bd-theme-text"
+                  data-bs-popper="static"
+                >
+                  <li>
+                    <button
+                      type="button"
+                      class="dropdown-item d-flex align-items-center active"
+                      data-bs-theme-value="light"
+                      aria-pressed="true"
+                    >
+                      <i class="bi-sun-fill me-2 opacity-50"></i>
+                      <span>{lightText}</span>
+                      <svg class="bi ms-auto d-none"
+                        ><use href="#check2"></use></svg
+                      >
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      class="dropdown-item d-flex align-items-center"
+                      data-bs-theme-value="dark"
+                      aria-pressed="false"
+                    >
+                      <i class="bi-moon-stars-fill me-2 opacity-50"></i>
+                      <span>{darkText}</span>
+                      <svg class="bi ms-auto d-none"
+                        ><use href="#check2"></use></svg
+                      >
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      class="dropdown-item d-flex align-items-center"
+                      data-bs-theme-value="auto"
+                      aria-pressed="false"
+                    >
+                      <i class="bi-circle-half me-2 opacity-50"></i>
+                      <span>{autoText}</span>
+                      <svg class="bi ms-auto d-none"
+                        ><use href="#check2"></use></svg
+                      >
+                    </button>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <button
+                  class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center"
+                  id="bd-language"
+                  type="button"
+                  aria-expanded="false"
+                  data-bs-toggle="dropdown"
+                  data-bs-display="static"
+                  aria-label={currentLanguageText}
+                >
+                  <span
+                    class={`fi fi-${locale === "en" ? "us" : locale === "de" ? "de" : "eg"}`}
+                  ></span>
+                  <span class="d-lg-none ms-2" id="bd-language-text">
+                    {currentLanguageText}
+                  </span>
+                </button>
+                <ul
+                  class="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="bd-language-text"
+                  data-bs-popper="static"
+                >
+                  <!-- English Language Option -->
+                  <li>
+                    <a
+                      class={`dropdown-item d-flex align-items-center ${locale === "en" ? "active" : ""}`}
+                      aria-pressed={locale === "en" ? "true" : "false"}
+                      href={`/${lastSegment}`}
+                    >
+                      <span class="fi fi-us me-2"></span>
+                      <span>{englishLanguageName}</span>
+                      <svg class="bi ms-auto d-none">
+                        <use href="#check2"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <!-- German Language Option -->
+                  <li>
+                    <a
+                      class={`dropdown-item d-flex align-items-center ${locale === "de" ? "active" : ""}`}
+                      aria-pressed={locale === "de" ? "true" : "false"}
+                      href={`/de/${lastSegment}`}
+                    >
+                      <span class="fi fi-de me-2"></span>
+                      <span>{germanLanguageName}</span>
+                      <svg class="bi ms-auto d-none">
+                        <use href="#check2"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <!-- Arabic Language Option -->
+                  <li>
+                    <a
+                      class={`dropdown-item d-flex align-items-center ${locale === "ar" ? "active" : ""}`}
+                      aria-pressed={locale === "ar" ? "true" : "false"}
+                      href={`/ar/${lastSegment}`}
+                    >
+                      <span class="fi fi-eg me-2"></span>
+                      <span>{arabicLanguageName}</span>
+                      <svg class="bi ms-auto d-none">
+                        <use href="#check2"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="flex-shrink-0">
+      <slot />
+    </main>
+    <div
+      id="cb-cookie-banner"
+      class="alert alert-dark text-center mb-0 d-flex justify-content-center align-items-center flex-wrap gap-3"
+      role="alert"
+      style="display:none!important;"
+    >
+      <small>
+        {cookieBannerText}
+        <a href="https://www.cookiesandyou.com/" target="blank"
+          >{learnMoreCookiesText}</a
+        ></small
+      >
+      <div>
+        <button
+          type="button"
+          class="btn btn-outline-primary btn-sm"
+          data-bs-toggle="modal"
+          data-bs-target="#cookiesModal"
+        >
+          {cookieSettingsText}
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary btn-sm"
+          onclick="window.cb_hideCookieBanner()"
+        >
+          {acceptAllCookiesText}
+        </button>
+      </div>
+    </div>
+    <footer class="border-top footer mt-auto">
+      <div class="container">
+        <div class="pt-3 fs-6 pb-5" id="footerContainer">
+          <div class="d-flex justify-content-between flex-wrap">
+            <div>
+              <small class="font-monospace fw-bold"
+                ><span dir="ltr">© 2024 {siteTitle}.</span>
+                {allRightsReservedText}.</small
+              >
+            </div>
+            <div class="d-flex mt-3 mt-md-0">
+              <a class="nav-link" href={`/${locale}/about/`}>{aboutLinkTitle}</a
+              >
+              <a class="nav-link ms-3" href={`/${locale}/contact/`}
+                >{contactLinkTitle}</a
+              >
+              <button
+                class="nav-link ms-3"
+                data-bs-toggle="modal"
+                data-bs-target="#cookiesModal">{cookieSettingsText}</button
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div
+      class="modal fade"
+      id="cookiesModal"
+      tabindex="-1"
+      aria-labelledby="cookiesModallabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="cookiesModallabel">
+              {cookieSettingsText}
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <!-- Checkbox for Necessary Cookies -->
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="necessary-cookies"
+                  checked
+                  disabled
+                  aria-describedby="necessary-cookies-description"
+                />
+                <label class="form-check-label" for="necessary-cookies">
+                  {necessaryCookiesText}
+                </label>
+                <p
+                  class="form-text text-muted cookiesHelpText"
+                  id="necessary-cookies-description"
+                >
+                  {necessaryCookiesDescText}
+                </p>
+              </div>
+
+              <!-- Checkbox for Analytics and Performance Cookies -->
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="analytics-cookies"
+                  aria-describedby="analytics-cookies-description"
+                />
+                <label class="form-check-label" for="analytics-cookies">
+                  {analyticsCookiesText}
+                </label>
+                <p
+                  class="form-text text-muted cookiesHelpText"
+                  id="analytics-cookies-description"
+                >
+                  {analyticsCookiesDescText}
+                </p>
+              </div>
+
+              <!-- Checkbox for Advertising Cookies -->
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="advertising-cookies"
+                  aria-describedby="advertising-cookies-description"
+                />
+                <label class="form-check-label" for="advertising-cookies">
+                  {advertisingCookiesText}
+                </label>
+                <p
+                  class="form-text text-muted cookiesHelpText"
+                  id="advertising-cookies-description"
+                >
+                  {advertisingCookiesDescText}
+                </p>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal">{closeBtnText}</button
+            >
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="savePreferencesButton">{savePreferencesText}</button
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    /*!
+     * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
+     * Copyright 2011-2024 The Bootstrap Authors
+     * Licensed under the Creative Commons Attribution 3.0 Unported License.
+     */
+
+    (() => {
+      "use strict";
+
+      const getStoredTheme = () => localStorage.getItem("theme");
+      const setStoredTheme = (theme) => localStorage.setItem("theme", theme);
+
+      const getPreferredTheme = () => {
+        const storedTheme = getStoredTheme();
+        if (storedTheme) {
+          return storedTheme;
+        }
+
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      };
+
+      const setTheme = (theme) => {
+        if (theme === "auto") {
+          document.documentElement.setAttribute(
+            "data-bs-theme",
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light"
+          );
+        } else {
+          document.documentElement.setAttribute("data-bs-theme", theme);
+        }
+      };
+
+      setTheme(getPreferredTheme());
+
+      const showActiveTheme = (theme, focus = false) => {
+        const themeSwitcher = document.querySelector("#bd-theme");
+
+        if (!themeSwitcher) {
+          return;
+        }
+
+        const themeSwitcherText = document.querySelector("#bd-theme-text");
+        const activeThemeIcon = document.querySelector(".theme-icon-active");
+        const btnToActive = document.querySelector(
+          `[data-bs-theme-value="${theme}"]`
+        );
+        const iconClassOfActiveBtn =
+          btnToActive.querySelector("i").classList[0]; // Get the icon class
+
+        // Remove the active state from all buttons
+        document
+          .querySelectorAll("[data-bs-theme-value]")
+          .forEach((element) => {
+            element.classList.remove("active");
+            element.setAttribute("aria-pressed", "false");
+          });
+
+        // Set the active button
+        btnToActive.classList.add("active");
+        btnToActive.setAttribute("aria-pressed", "true");
+
+        // Update the active theme icon
+        activeThemeIcon.className =
+          iconClassOfActiveBtn + " my-1 theme-icon-active";
+
+        const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`;
+        themeSwitcher.setAttribute("aria-label", themeSwitcherLabel);
+
+        if (focus) {
+          themeSwitcher.focus();
+        }
+      };
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", () => {
+          const storedTheme = getStoredTheme();
+          if (storedTheme !== "light" && storedTheme !== "dark") {
+            setTheme(getPreferredTheme());
+          }
+        });
+
+      window.addEventListener("DOMContentLoaded", () => {
+        showActiveTheme(getPreferredTheme());
+
+        document.querySelectorAll("[data-bs-theme-value]").forEach((toggle) => {
+          toggle.addEventListener("click", () => {
+            const theme = toggle.getAttribute("data-bs-theme-value");
+            setStoredTheme(theme);
+            setTheme(theme);
+            showActiveTheme(theme, true);
+          });
+        });
+      });
+    })();
+  </script>
+  <script>
+    /* courtesy of https://github.com/kolappannathan/bootstrap-cookie-banner */
+    /* Javascript to show and hide cookie banner using localstorage */
+    /* Shows the Cookie banner */
+    function showCookieBanner() {
+      let cookieBanner = document.getElementById("cb-cookie-banner");
+      cookieBanner.style.display = "block";
+    }
+
+    /* Hides the Cookie banner and saves the value to localstorage */
+    function hideCookieBanner() {
+      localStorage.setItem("cb_isCookieAccepted", "yes");
+      let cookieBanner = document.getElementById("cb-cookie-banner");
+      cookieBanner.style.setProperty("display", "none", "important");
+    }
+
+    /* Checks the localstorage and shows Cookie banner based on it. */
+    function initializeCookieBanner() {
+      let isCookieAccepted = localStorage.getItem("cb_isCookieAccepted");
+      if (isCookieAccepted === null) {
+        localStorage.setItem("cb_isCookieAccepted", "no");
+        showCookieBanner();
+      }
+      if (isCookieAccepted === "no") {
+        showCookieBanner();
+      }
+    }
+
+    // Assigning values to window object
+    window.onload = initializeCookieBanner();
+    window.cb_hideCookieBanner = hideCookieBanner;
+
+    document
+      .getElementById("savePreferencesButton")
+      .addEventListener("click", function () {
+        hideCookieBanner(); // Ensure this function works as expected
+
+        // Retrieve the modal element by ID and manually hide it
+        var cookiesModalElement = document.getElementById("cookiesModal");
+        var cookiesModal = bootstrap.Modal.getInstance(cookiesModalElement); // Get the modal instance
+
+        if (cookiesModal) {
+          cookiesModal.hide();
+        } else {
+          // If there's no instance yet, initialize and hide
+          cookiesModal = new bootstrap.Modal(cookiesModalElement);
+          cookiesModal.hide();
+        }
+      });
+  </script>
+</html>

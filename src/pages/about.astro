@@ -1,0 +1,411 @@
+---
+import { getLocale } from "astro-i18n-aut";
+import Layout from "../layouts/Layout.astro";
+
+const locale = getLocale(Astro.url);
+
+let title: string;
+let customerSatisfaction: string;
+let corporatePartners: string;
+let combinedYearsExp: string;
+let ourValues: string;
+let innovation: string;
+let innovationDescription: string;
+let quality: string;
+let qualityDescription: string;
+let sustainability: string;
+let sustainabilityDescription: string;
+let ourStory: string;
+let ourStoryP1: string;
+let ourStoryP2: string;
+let ourStoryP3: string;
+let ourTeam: string;
+switch (locale) {
+  case "ar":
+    title = "عن";
+    customerSatisfaction = "رضا العملاء";
+    corporatePartners = "الشركاء المؤسسيين";
+    combinedYearsExp = "سنوات الخبرة المجمعة";
+    ourValues = "قيمنا";
+    innovation = "الابتكار";
+    innovationDescription =
+      "نحن ندفع باستمرار حدود التصميم والوظائف لخلق حلول مطبخ متطورة تلبي احتياجات عملائنا المتغيرة.";
+    quality = "الجودة";
+    qualityDescription =
+      "نحن ملتزمون بتقديم منتجات تتجاوز معايير الصناعة، لضمان المتانة والموثوقية والحرفية الاستثنائية في كل حوض مطبخ نقوم بإنتاجه.";
+    sustainability = "الاستدامة";
+    sustainabilityDescription =
+      "نحن نولي الأولوية للمواد الصديقة للبيئة وعمليات التصنيع، ونسعى لتقليل بصمتنا البيئية مع تعزيز مستقبل أكثر اخضرارًا لمجتمعاتنا وعملائنا.";
+    ourStory = "قصتنا";
+    ourStoryP1 =
+      "بدأت رحلة جاسمن كارتر نحو تأسيس عملها في مجال أحواض المطبخ في قلب مدينة سانت لويس بولاية ميزوري، حيث نشأت محاطة بالنسيج الثقافي الغني للمدينة. بدأت شغفها بالتصميم والوظائف في وقت مبكر، وهي تشاهد جدتها تحول مطبخهم المتواضع إلى مساحة حيوية يتجمع فيها العائلة والأصدقاء. أثارت هذه التجربة الطفولية شغف جاسمن بخلق حلول منزلية عملية وجمالية في آن واحد. بعد حصولها على درجة في التصميم الصناعي، قضت عدة سنوات في العمل في شركات تصميم مختلفة، صقلت مهاراتها وفهمت تعقيدات تطوير المنتجات.";
+    ourStoryP2 = `مدفوعة برغبتها في دمج خبرتها في التصميم مع حبها لجمالية المنزل، قامت جاسمن بخطوة جريئة وقررت بدء عملها الخاص. أدركت وجود فجوة في السوق لأحواض مطبخ عالية الجودة وأنيقة تلبي الأذواق والاحتياجات المتنوعة. برؤية واضحة في ذهنها، عادت إلى سانت لويس لتأسيس شركتها. مسلحة بفريق صغير وميزانية محدودة، أنشأت جاسمن ورشة عمل متواضعة بدأت فيها بصنع النماذج الأولية وتأمين المواد. سرعان ما لفتت التزامها بالجودة والابتكار انتباه المقاولين المحليين وبناة المنازل، مما مهد الطريق لنمو علامتها التجارية.`;
+    ourStoryP3 = `مع اكتساب عملها زخمًا، واجهت جاسمن العديد من التحديات، من توسيع الإنتاج إلى إدارة سلاسل التوريد. ومع ذلك، قادتها عزيمتها ومهاراتها في حل المشكلات عبر هذه العقبات. جاء التحول عندما تم عرض تصاميمها في مجلة بارزة لتحسين المنازل، مما منح علامتها التجارية الاعتراف الذي تحتاجه. اليوم، تعد شركة أحواض المطبخ لجاسمن كارتر شهادة على تفانيها وإبداعها، حيث تقدم مجموعة من المنتجات الأنيقة والوظيفية التي تواصل إبهار أصحاب المنازل والمصممين في سانت لويس وما وراءها.`;
+    ourTeam = "فريقنا";
+    break;
+  case "de":
+    title = "Um";
+    customerSatisfaction = "Kundenzufriedenheit";
+    corporatePartners = "Unternehmenspartner";
+    combinedYearsExp = "Kombinierte Jahre Erfahrung";
+    ourValues = "Unsere Werte";
+    innovation = "Innovation";
+    innovationDescription =
+      "Wir überschreiten kontinuierlich die Grenzen von Design und Funktionalität, um moderne Küchenlösungen zu schaffen, die den sich wandelnden Bedürfnissen unserer Kunden gerecht werden.";
+    quality = "Qualität";
+    qualityDescription =
+      "Wir sind verpflichtet, Produkte zu liefern, die die Branchenstandards übertreffen und Langlebigkeit, Zuverlässigkeit und außergewöhnliche Handwerkskunst bei jedem Küchenspülbecken gewährleisten, das wir produzieren.";
+    sustainability = "Nachhaltigkeit";
+    sustainabilityDescription =
+      "Wir legen Wert auf umweltfreundliche Materialien und Herstellungsprozesse und bemühen uns, unseren ökologischen Fußabdruck zu reduzieren, während wir eine grünere Zukunft für unsere Gemeinschaften und Kunden fördern.";
+    ourStory = "Unsere Geschichte";
+    ourStoryP1 =
+      "Jasmine Carters Weg zur Gründung ihres Unternehmens für Küchenspülen begann im Herzen von St. Louis, Missouri, wo sie inmitten des reichen kulturellen Gefüges der Stadt aufwuchs. Ihre Faszination für Design und Funktionalität begann früh, als sie zusah, wie ihre Großmutter ihre bescheidene Küche in einen lebhaften Raum verwandelte, in dem sich Familie und Freunde versammelten. Diese Kindheitserfahrung entfachte Jasmines Leidenschaft, praktische und zugleich ästhetisch ansprechende Lösungen für das Zuhause zu schaffen. Nach ihrem Abschluss in Industriedesign arbeitete sie mehrere Jahre in verschiedenen Designbüros, um ihre Fähigkeiten zu verfeinern und die Feinheiten der Produktentwicklung zu verstehen.";
+    ourStoryP2 = `Getrieben von ihrem Wunsch, ihre Designexpertise mit ihrer Liebe zu Home-Aesthetics zu verbinden, wagte Jasmine den Schritt und entschied sich, ihr eigenes Unternehmen zu gründen. Sie erkannte eine Lücke im Markt für hochwertige, stilvolle Küchenspülen, die unterschiedlichen Geschmäckern und Bedürfnissen gerecht wurden. Mit einer klaren Vision kehrte sie nach St. Louis zurück, um ihr Unternehmen zu gründen. Ausgestattet mit einem kleinen Team und einem knappen Budget richtete Jasmine eine bescheidene Werkstatt ein, in der sie Prototypen herstellte und Materialien beschaffte. Ihr Engagement für Qualität und Innovation erregte schnell die Aufmerksamkeit lokaler Bauunternehmer und Heimwerker, was den Grundstein für das Wachstum ihrer Marke legte.`;
+    ourStoryP3 = `Als ihr Unternehmen an Fahrt gewann, sah sich Jasmine zahlreichen Herausforderungen gegenüber, von der Skalierung der Produktion bis hin zur Verwaltung der Lieferketten. Doch ihre Entschlossenheit und Problemlösungsfähigkeiten führten sie durch diese Hürden. Der Wendepunkt kam, als ihre Designs in einem renommierten Magazin für Heimwerker vorgestellt wurden, was ihrer Marke die Anerkennung verschaffte, die sie benötigte. Heute steht Jasmine Carters Unternehmen für Küchenspülen als Zeugnis ihres Engagements und ihrer Kreativität und bietet eine Reihe von stilvollen und funktionalen Produkten, die weiterhin Hausbesitzer und Designer in St. Louis und darüber hinaus beeindrucken.`;
+    ourTeam = "Unser Team";
+    break;
+  default:
+    title = "About";
+    customerSatisfaction = "Customer satisfaction";
+    corporatePartners = "Corporate partners";
+    combinedYearsExp = "Combined years experience";
+    ourValues = "Our Values";
+    innovation = "Innovation";
+    innovationDescription =
+      "We continuously push the boundaries of design and functionality to create cutting-edge kitchen solutions that meet the evolving needs of our customers.";
+    quality = "Quality";
+    qualityDescription =
+      "We are committed to delivering products that exceed industry standards, ensuring durability, reliability, and exceptional craftsmanship in every kitchen sink we produce.";
+    sustainability = "Sustainability";
+    sustainabilityDescription =
+      "We prioritize eco-friendly materials and manufacturing processes, striving to reduce our environmental footprint while promoting a greener future for our communities and customers.";
+    ourStory = "Our Story";
+    ourStoryP1 =
+      "Jasmine Carter’s journey to founding her kitchen sink business began in the heart of St. Louis, Missouri, where she grew up surrounded by the rich cultural tapestry of the city. Her fascination with design and functionality started early, as she watched her grandmother transform their modest kitchen into a vibrant space where family and friends would gather. This childhood experience ignited Jasmine’s passion for creating practical yet aesthetically pleasing home solutions. After earning her degree in industrial design, she spent several years working in various design firms, honing her skills and understanding the intricacies of product development.";
+    ourStoryP2 = `
+  Driven by her desire to combine her design expertise with her love for
+        home aesthetics, Jasmine took a leap of faith and decided to start her
+        own business. She recognized a gap in the market for high-quality,
+        stylish kitchen sinks that catered to diverse tastes and needs. With a
+        clear vision in mind, she returned to St. Louis to establish her
+        company. Armed with a small team and a tight budget, Jasmine set up a
+        modest workshop where she began crafting prototypes and sourcing
+        materials. Her commitment to quality and innovation quickly garnered
+        attention from local contractors and home builders, setting the stage
+        for her brand’s growth.
+  `;
+    ourStoryP3 = `
+  As her business gained traction, Jasmine faced numerous challenges, from
+        scaling production to managing supply chains. However, her determination
+        and problem-solving skills led her through these hurdles. The turning
+        point came when her designs were featured in a prominent home
+        improvement magazine, giving her brand the recognition it needed. Today,
+        Jasmine Carter’s kitchen sink company stands as a testament to her
+        dedication and creativity, offering a range of stylish and functional
+        products that continue to impress homeowners and designers alike across
+        St. Louis and beyond.
+  `;
+    ourTeam = "Our Team";
+}
+---
+
+<style>
+  .card-img-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  #about-splash-section {
+    margin-top: 56px;
+    height: calc(100vh - 56px);
+  }
+  .pageSection {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .sectionHeader {
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 767.98px) {
+    .pageSection {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+</style>
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { TextPlugin } from "gsap/TextPlugin";
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(TextPlugin);
+  // Register the counter effect globally
+  // courtesy of https://gsap.com/community/forums/topic/26886-number-counter-animation-in-gsap-3x-and-adding-decimal-separators-to-the-number/?do=findComment&comment=131102
+  gsap.registerEffect({
+    name: "counter",
+    extendTimeline: true, // Allow it to be used inside timelines
+    defaults: {
+      end: 0, // Final number for the counter
+      duration: 1, // Duration of the animation
+      ease: "power1", // Default easing
+      increment: 1, // Incremental step (snap to increments)
+    },
+    effect: (targets, config) => {
+      let tl = gsap.timeline(); // Create a new timeline for each counter
+      let num = targets[0].innerText.replace(/\,/g, ""); // Remove commas for parsing
+
+      // Set the initial value of the text to 0 or retain it if already set
+      targets[0].innerText = num;
+
+      // Animate the innerText from its current value to the final 'end' value
+      tl.to(
+        targets,
+        {
+          duration: config.duration,
+          innerText: config.end, // End value
+          modifiers: {
+            innerText: function (innerText) {
+              // Use snap to round to nearest increment and format with commas
+              return gsap.utils
+                .snap(config.increment, innerText)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            },
+          },
+          ease: config.ease, // Apply the easing function
+        },
+        0
+      );
+
+      return tl;
+    },
+  });
+
+  // Create a GSAP timeline for sequential animation
+  let tl = gsap.timeline();
+
+  // Animate elements with specific IDs
+  tl.counter(
+    "#customerSatisfaction",
+    { end: 99.9, increment: 0.1, duration: 2, ease: "power2.out" },
+    "-=0.5"
+  ) // Customer satisfaction counter
+    .from("#corporatePartners", { opacity: 0, duration: 1 }, "-=0.15") // Fades in the second element
+    .counter(
+      "#corporatePartners",
+      { end: 40, increment: 1, duration: 2, ease: "power2.out" },
+      "-=1.0"
+    ) // Corporate partners counter
+    .from("#yrsExperience", { opacity: 0, duration: 1 }, "-=0.45") // Fades in the third element
+    .counter(
+      "#yrsExperience",
+      { end: 138, increment: 1, duration: 2, ease: "power2.out" },
+      "-=1.0"
+    ); // Years experience counter
+
+  gsap.utils.toArray(".sectionHeader, .storyParagraph").forEach((header, i) => {
+    gsap.fromTo(
+      header,
+      {
+        opacity: 0, // Start fully invisible
+      },
+      {
+        opacity: 1, // Fade in to full visibility
+        duration: 2.5, // Animation duration of 2 seconds
+        scrollTrigger: {
+          trigger: header, // Each header triggers its own animation
+          start: "top 80%", // Start animation when the top of the header reaches 80% of the viewport
+          end: "top 50%", // End when the top reaches 50% of the viewport
+          scrub: false, // No scrub, just a regular animation
+        },
+      }
+    );
+  });
+  gsap.from(".valueCard", {
+    opacity: 0, // Start fully invisible
+    y: 20, // Start slightly below their final position
+    duration: 2, // Duration of each individual animation
+    stagger: 0.75, // Stagger the animation start times by 0.3 seconds
+    scrollTrigger: {
+      trigger: ".valueCard", // The row containing the team persons
+      start: "top 80%", // Start animation when the row reaches 80% of the viewport
+      end: "top 50%", // End animation when the top of the row reaches 50% of the viewport
+      scrub: false, // No scrub, plays like a normal animation
+      markers: false, // No markers for debugging
+    },
+  });
+  gsap.from(".ourTeamPerson", {
+    opacity: 0, // Start fully invisible
+    y: 20, // Start slightly below their final position
+    duration: 2, // Duration of each individual animation
+    stagger: 0.75, // Stagger the animation start times by 0.3 seconds
+    scrollTrigger: {
+      trigger: ".ourTeamPersonRow", // The row containing the team persons
+      start: "top 80%", // Start animation when the row reaches 80% of the viewport
+      end: "top 50%", // End animation when the top of the row reaches 50% of the viewport
+      scrub: false, // No scrub, plays like a normal animation
+      markers: false, // No markers for debugging
+    },
+  });
+</script>
+<Layout title={title}>
+  <section id="about-splash-section">
+    <div class="container h-100 d-flex flex-column justify-content-center">
+      <div
+        class="row d-flex flex-wrap justify-content-center align-items-center gap-1 gap-lg-5 text-white"
+      >
+        <div class="col-lg text-center">
+          <h1 class="fw-bold massiveNumberText font-monospace">
+            <span id="customerSatisfaction">0</span>%
+          </h1>
+          <p class="lead">{customerSatisfaction}</p>
+        </div>
+        <div class="col-lg text-center">
+          <h1 class="fw-bold massiveNumberText font-monospace">
+            <span id="corporatePartners">0</span>
+          </h1>
+          <p class="lead">{corporatePartners}</p>
+        </div>
+        <div class="col-lg text-center">
+          <h1 class="fw-bold massiveNumberText font-monospace">
+            <span id="yrsExperience">0</span>
+          </h1>
+          <p class="lead">{combinedYearsExp}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="pageSection"></div>
+  <section>
+    <div class="container">
+      <h1 class="display-1 fw-bold sectionHeader">{ourValues}</h1>
+      <div class="row d-flex align-items-stretch">
+        <div class="col-lg-4 mb-4 d-flex">
+          <div
+            class="card rounded d-flex flex-column valueCard"
+            data-y-start-value="100"
+          >
+            <div class="card-img-top position-relative">
+              <img
+                src="/innovation.webp"
+                class="img-fluid rounded-top"
+                alt="Innovation"
+              />
+              <div
+                class="card-img-overlay d-flex align-items-center justify-content-center"
+              >
+                <h2 class="text-white fw-bold display-5">{innovation}</h2>
+              </div>
+            </div>
+            <div class="card-body p-3 p-md-4 p-lg-3 p-xl-4 flex-grow-1">
+              <p class="card-text font-monospace">
+                {innovationDescription}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4 d-flex">
+          <div
+            class="card rounded d-flex flex-column valueCard"
+            data-y-start-value="-10"
+          >
+            <div class="card-img-top position-relative">
+              <img
+                src="/quality.webp"
+                class="img-fluid rounded-top"
+                alt="Quality"
+              />
+              <div
+                class="card-img-overlay d-flex align-items-center justify-content-center"
+              >
+                <h2 class="text-white fw-bold display-5">{quality}</h2>
+              </div>
+            </div>
+            <div class="card-body p-3 p-md-4 p-lg-3 p-xl-4 flex-grow-1">
+              <p class="card-text font-monospace">
+                {qualityDescription}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4 d-flex">
+          <div
+            class="card rounded d-flex flex-column valueCard"
+            data-y-start-value="30"
+          >
+            <div class="card-img-top position-relative">
+              <img
+                src="/sustainability.webp"
+                class="img-fluid rounded-top"
+                alt="Sustainability"
+              />
+              <div
+                class="card-img-overlay d-flex align-items-center justify-content-center"
+              >
+                <h2 class="text-white fw-bold display-6">{sustainability}</h2>
+              </div>
+            </div>
+            <div class="card-body p-3 p-md-4 p-lg-3 p-xl-4 flex-grow-1">
+              <p class="card-text font-monospace">
+                {sustainabilityDescription}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="pageSection"></div>
+  <section class="bg-section bg-gradient-colorful">
+    <div class="container">
+      <h1 class="display-1 fw-bold sectionHeader">{ourStory}</h1>
+      <p class="font-monospace storyParagraph">
+        {ourStoryP1}
+      </p>
+      <p class="font-monospace storyParagraph">
+        {ourStoryP2}
+      </p>
+      <p class="font-monospace storyParagraph">
+        {ourStoryP3}
+      </p>
+    </div>
+  </section>
+  <div class="pageSection"></div>
+  <section class="bg-gradient-colorful-opposite">
+    <div class="container">
+      <h1 class="display-1 fw-bold sectionHeader">{ourTeam}</h1>
+      <div class="row ourTeamPersonRow">
+        <div class="col-md ourTeamPerson">
+          <img src="/person1.webp" width="100%" class="rounded-3" />
+          <p>
+            <span class="fw-bold fs-3">Jasmine Carter</span><span
+              class="font-monospace fs-2"
+            >
+              CEO</span
+            >
+          </p>
+        </div>
+        <div class="col-md ourTeamPerson">
+          <img src="/person2.webp" width="100%" class="rounded-3" />
+          <p>
+            <span class="fw-bold fs-3">Omar Al-Farouq, PhD</span><span
+              class="font-monospace fs-2"
+            >
+              CTO</span
+            >
+          </p>
+        </div>
+        <div class="col-md ourTeamPerson">
+          <img src="/person3.webp" width="100%" class="rounded-3" />
+          <p>
+            <span class="fw-bold fs-3">Ryan Miller</span><span
+              class="font-monospace fs-2"
+            >
+              COO</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="pageSection"></div>
+</Layout>

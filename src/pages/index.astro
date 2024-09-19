@@ -1,0 +1,230 @@
+---
+import { getLocale } from "astro-i18n-aut";
+import Layout from "../layouts/Layout.astro";
+
+const locale = getLocale(Astro.url);
+
+let title: string;
+let heroText: string;
+let paragraphText: string;
+let bold: string;
+let designs: string;
+let functional: string;
+let sinks: string;
+let clean: string;
+let fruit: string;
+let finalText: string;
+
+switch (locale) {
+  case "ar":
+    title = "بيت";
+    heroText = "مرحباً بكم في المنزل.";
+    paragraphText =
+      "نحن في The Kitchen Sink نؤمن بأن تصميم حوضك يجب أن يمثلك، وليس العكس. ونؤمن بأن بداية المطبخ الرائع تبدأ بحوض رائع.";
+    bold = "عريض";
+    designs = " تصاميم."; // Add space before 'تصاميم' for spacing
+    functional = "عملي";
+    sinks = " أحواض."; // Add space before 'أحواض' for spacing
+    clean = "نظيف";
+    fruit = " فاكهة."; // Add space before 'فاكهة' for spacing
+    finalText = "هذه هي طريقتنا في العمل.";
+    break;
+  case "de":
+    title = "Heim";
+    heroText = "Willkommen zu Hause.";
+    paragraphText =
+      "Wir von The Kitchen Sink sind der Meinung, dass das Design Ihrer Spüle Sie repräsentieren sollte, und nicht umgekehrt. Wir glauben, dass der Beginn einer großartigen Küche mit einer großartigen Spüle beginnt.";
+    bold = "Fett";
+    designs = " designs.";
+    functional = "Funktional";
+    sinks = " spülen.";
+    clean = "Sauber";
+    fruit = " obst.";
+    finalText = "So machen wir das hier.";
+    break;
+  default:
+    title = "Home";
+    heroText = "Welcome home.";
+    paragraphText =
+      "Here at The Kitchen Sink, we believe that the design of your sink should represent you, not the other way around. We believe that the start of a great kitchen starts with a great sink.";
+    bold = "Bold";
+    designs = " designs.";
+    functional = "Functional";
+    sinks = " sinks.";
+    clean = "Clean";
+    fruit = " fruit.";
+    finalText = "That's how we do things here.";
+}
+---
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from("#titleText", {
+    delay: 2,
+    duration: 2, // Duration of the animation in seconds
+    opacity: 0, // Start with the text invisible
+    ease: "power2.inOut", // Type of easing
+  });
+  gsap.from(".hero-container p", {
+    duration: 4,
+    scale: 0.5, // Start smaller
+    opacity: 0, // Start invisible
+    filter: "blur(10px)", // Start blurry
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".hero-container p", // Element to trigger animation
+      start: "top 120%", // Start when top of element is 80% from the top of viewport
+      end: "top 20%", // End when top of element is 20% from top of viewport
+      scrub: true, // Smooth scrolling effect
+      toggleActions: "play none none none", // Play the animation once when it enters the viewport
+      once: true,
+    },
+  });
+  let mm = gsap.matchMedia();
+  mm.add("(min-width: 767.98px)", () => {
+    gsap.utils.toArray<HTMLElement>(".parallax-layer").forEach((layer) => {
+      // Get the speed attribute and convert it to a number
+      const speed = parseFloat(layer.getAttribute("data-speed") || "0");
+
+      // Create the GSAP animation
+      gsap.to(layer, {
+        yPercent: -100 * speed, // Apply the parallax effect based on speed
+        ease: "none",
+        scrollTrigger: {
+          trigger: layer,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    });
+  });
+  function animateText() {
+    // Select the element to animate
+    const textElement = document.querySelector(".fade-in");
+    // Select all child spans
+    const words = textElement.querySelectorAll("span");
+
+    // Create a GSAP timeline for the animation
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: textElement,
+        start: "top bottom", // Animation starts when the top of the element is in view
+        end: "+=80%", // Animation ends when the bottom of the element is out of view
+        scrub: true, // Link animation to scroll position
+      },
+    });
+
+    // Add staggered animation to the timeline
+    tl.fromTo(
+      words,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        ease: "power1.inOut",
+      }
+    );
+  }
+
+  // Apply the animation
+  animateText();
+</script>
+<Layout title={title}>
+  <section class="video-section">
+    <video src="/kitchen_sink_video.mp4" autoplay loop muted playsinline
+    ></video>
+    <div class="overlay-content">
+      <h1 class="display-1 fw-bold pb-3 text-center" id="titleText">
+        {heroText}
+      </h1>
+    </div>
+  </section>
+  <section>
+    <div class="container hero-container">
+      <p class="fs-3 font-monospace mb-0">{paragraphText}</p>
+    </div>
+  </section>
+  <section>
+    <div class="container-fluid py-0 py-md-5">
+      <div class="row">
+        <div class="col-md mt-2 mt-md-0 parallax-layer" data-speed="0.5">
+          <img
+            src="/sink1-desktop.webp"
+            width="100%"
+            class="parallax-image d-none d-md-block"
+            alt="Sink 1 Desktop"
+          />
+          <img
+            src="/sink1-tablet.webp"
+            width="100%"
+            class="parallax-image d-none d-sm-block d-md-none"
+            alt="Sink 1 Tablet"
+          />
+          <img
+            src="/sink1-mobile.webp"
+            width="100%"
+            class="parallax-image d-sm-none"
+            alt="Sink 1 Mobile"
+          />
+        </div>
+        <div class="col-md mt-2 mt-md-5 parallax-layer" data-speed="0.8">
+          <img
+            src="/sink2-desktop.webp"
+            width="100%"
+            class="parallax-image d-none d-md-block"
+            alt="Sink 2 Desktop"
+          />
+          <img
+            src="/sink2-tablet.webp"
+            width="100%"
+            class="parallax-image d-none d-sm-block d-md-none"
+            alt="Sink 2 Tablet"
+          />
+          <img
+            src="/sink2-mobile.webp"
+            width="100%"
+            class="parallax-image d-sm-none"
+            alt="Sink 2 Mobile"
+          />
+        </div>
+        <div class="col-md mt-2 mt-md-3 parallax-layer" data-speed="0.2">
+          <img
+            src="/sink3-desktop.webp"
+            width="100%"
+            class="parallax-image d-none d-md-block"
+            alt="Sink 3 Desktop"
+          />
+          <img
+            src="/sink3-tablet.webp"
+            width="100%"
+            class="parallax-image d-none d-sm-block d-md-none"
+            alt="Sink 3 Tablet"
+          />
+          <img
+            src="/sink3-mobile.webp"
+            width="100%"
+            class="parallax-image d-sm-none"
+            alt="Sink 3 Mobile"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container big-bottom-container">
+      <p class="display-1 fade-in" id="designText">
+        <span class="fw-bold">{bold}</span>
+        <span> {designs}</span><br />
+        <span class="fw-bold">{functional}</span>
+        <span> {sinks}</span><br />
+        <span class="fw-bold">{clean}</span>
+        <span> {fruit}</span>
+        <span class="font-monospace fs-6">
+          <br />{finalText}
+        </span>
+      </p>
+    </div>
+  </section>
+</Layout>

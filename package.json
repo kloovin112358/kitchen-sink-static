@@ -1,0 +1,21 @@
+{
+  "name": "y",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.1.6",
+    "astro": "^4.13.2",
+    "astro-i18n-aut": "^0.7.0",
+    "bootstrap": "^5.3.3",
+    "flag-icons": "^7.2.3",
+    "gsap": "^3.12.5",
+    "sass": "^1.77.8"
+  }
+}

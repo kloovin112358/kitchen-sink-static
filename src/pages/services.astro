@@ -1,0 +1,285 @@
+---
+import { getLocale } from "astro-i18n-aut";
+import Layout from "../layouts/Layout.astro";
+
+const locale = getLocale(Astro.url);
+
+let title: string;
+let splashHeader: string;
+let sinkDesign: string;
+let sinkDesignDesc: string;
+let sinkRepair: string;
+let sinkRepairDesc: string;
+let industrialSinks: string;
+let industrialSinksDesc: string;
+let contactUs: string;
+let needExpertise: string;
+switch (locale) {
+  case "ar":
+    title = "خدمات";
+    splashHeader = "أحواضنا سوف تبهرك.";
+    sinkDesign = "تصميم الحوض";
+    sinkDesignDesc =
+      "حوّل مطبخك بأحواضنا المصممة ببراعة، والتي تدمج بين التكنولوجيا المتقدمة والتصميم الأنيق.";
+    sinkRepair = "إصلاح الحوض";
+    sinkRepairDesc =
+      "تجمع خدمات إصلاح الأحواض الخاصة بنا بين الخبرة الصناعية الواسعة والتقنيات المتقدمة لضمان إصلاح مثالي في كل مرة.";
+    industrialSinks = "أحواض صناعية";
+    industrialSinksDesc =
+      "نتفوق في تصميم الأحواض الصناعية التي تتمتع بالمتانة والدقة، مما يضمن تحقيق أعلى معايير الوظائف والصلابة في البيئات الصعبة.";
+    contactUs = "تواصل معنا";
+    needExpertise = "هل تحتاج إلى خبرة في الأحواض؟";
+    break;
+  case "de":
+    title = "Dienstleistungen";
+    splashHeader = "Unsere Waschbecken werden Sie umhauen.";
+    sinkDesign = "Spüldesign";
+    sinkDesignDesc =
+      "Verwandeln Sie Ihre Küche mit unseren fachmännisch gestalteten Spülen, die Spitzentechnologie nahtlos mit elegantem Design verbinden.";
+    sinkRepair = "Spülreparatur";
+    sinkRepairDesc =
+      "Unsere Spülreparaturdienste kombinieren umfangreiche Branchenexpertise mit fortschrittlichen Techniken, um jedes Mal eine einwandfreie Reparatur zu gewährleisten.";
+    industrialSinks = "Industrielle Spülen";
+    industrialSinksDesc =
+      "Wir sind Experten im Entwerfen industrieller Spülen mit unvergleichlicher Haltbarkeit und Präzision, um höchste Anforderungen an Funktionalität und Belastbarkeit zu erfüllen.";
+    contactUs = "Kontaktieren Sie uns";
+    needExpertise = "Benötigen Sie Spülen-Expertise?";
+    break;
+  default:
+    title = "Services";
+    splashHeader = "Our sinks will blow your mind.";
+    sinkDesign = "Sink Design";
+    sinkDesignDesc =
+      "Transform your kitchen with our expertly designed sinks, which seamlessly integrate cutting-edge technology with elegant design.";
+    sinkRepair = "Sink Repair";
+    sinkRepairDesc =
+      "Our sink repair services combine extensive industry expertise with advanced techniques to ensure a flawless fix every time.";
+    industrialSinks = "Industrial Sinks";
+    industrialSinksDesc =
+      "We excel at crafting industrial sinks with unmatched durability and precision, ensuring they meet the highest standards of functionality and resilience in demanding environments.";
+    contactUs = "Contact Us";
+    needExpertise = "Need sink expertise?";
+}
+---
+
+<style>
+  .scrolling-list-container {
+    overflow: hidden;
+    height: 200px; /* Adjust this to the height you need */
+    position: relative;
+  }
+
+  .scrolling-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .scrolling-list li {
+    /* font-size: 1.5rem; */
+    padding: 10px 0;
+    white-space: nowrap;
+  }
+  .splashHeader {
+    font-size: 8rem;
+  }
+  @media (max-width: 991.98px) {
+    .splashHeader {
+      font-size: 7rem;
+    }
+  }
+  @media (max-width: 767.98px) {
+    .splashHeader {
+      font-size: 3rem;
+    }
+  }
+  .gradientButton {
+    background: linear-gradient(
+      90deg,
+      #00cccc,
+      #ff00ff
+    ); /* Gradient from #00cccc to pink */
+    border: none; /* Remove default border */
+    color: white; /* Text color */
+    font-weight: bold; /* Bold text */
+    padding: 0.75rem 1.5rem; /* Adjust padding as needed */
+    border-radius: 0.25rem; /* Adjust border radius as needed */
+    transition:
+      background 0.5s ease,
+      transform 3s ease;
+  }
+  .gradientButton:hover {
+    background: linear-gradient(
+      90deg,
+      #00b8b8,
+      #e600e6
+    ); /* Slightly darker gradient */
+  }
+  #heading-splash-section {
+    margin-top: 56px;
+    height: calc(100vh - 56px);
+  }
+</style>
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { TextPlugin } from "gsap/TextPlugin";
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(TextPlugin);
+
+  // Use TypeScript's type assertion to tell GSAP that it's dealing with an array of HTML elements
+  gsap.utils
+    .toArray<HTMLElement>(".offeringRow .column-from-top")
+    .forEach((column) => {
+      gsap.from(column, {
+        opacity: 0,
+        y: 0, // Animate from above
+        duration: 4,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: column,
+          start: "top 120%",
+          end: "bottom 60%",
+          scrub: true, // Link animation to scroll position
+        },
+      });
+    });
+
+  gsap.utils
+    .toArray<HTMLElement>(".offeringRow .column-from-bottom")
+    .forEach((column) => {
+      gsap.from(column, {
+        opacity: 0,
+        y: 150, // Animate from below
+        duration: 4,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: column,
+          start: "top 120%",
+          end: "bottom 60%",
+          scrub: true, // Link animation to scroll position
+        },
+      });
+    });
+  gsap.fromTo(
+    ".heading-splash-section", // Target the container
+    { background: "transparent" }, // Initial state (transparent background)
+    {
+      background: "linear-gradient(90deg, #00ffff, #ff00ff)", // Gradient background from black to white
+      duration: 1, // Duration of the animation
+      ease: "none", // Easing function for smoothness
+      scrollTrigger: {
+        trigger: "#splashHeader", // Element that triggers the animation
+        start: "bottom 60%", // Start animation when the top of the trigger is 65% from the top of the viewport
+        end: "bottom 40%", // End animation when the bottom is 30% from the top of the viewport
+        scrub: true, // Link animation to scroll position
+      },
+    }
+  );
+</script>
+<Layout title={title}>
+  <section id="heading-splash-section" class="heading-splash-section">
+    <div
+      class="container h-100 servicesRow d-flex flex-column justify-content-center"
+    >
+      <h1 class="fw-bold splashHeader" id="splashHeader">
+        {splashHeader}
+      </h1>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <div class="row servicesRowFirst offeringRow">
+        <div
+          class="col-lg d-flex flex-column justify-content-center p-5 order-last order-lg-first column-from-top"
+        >
+          <h2 class="display-6 fw-bold font-monospace">{sinkDesign}</h2>
+          <p class="fs-3 lead design-description">
+            {sinkDesignDesc}
+          </p>
+        </div>
+        <div
+          class="col-lg d-flex flex-column justify-content-center order-first order-lg-last p-4 column-from-bottom"
+        >
+          <img
+            src="/sink4-desktop.webp"
+            width="100%"
+            class="d-none d-lg-block rounded"
+            alt="Sink 4"
+          />
+          <img
+            src="/sink4-tabletmobile.webp"
+            width="100%"
+            class="d-lg-none rounded"
+            alt="Sink 4"
+          />
+        </div>
+      </div>
+      <div class="row servicesRow offeringRow">
+        <div
+          class="col-lg d-flex flex-column justify-content-center p-5 order-lg-last column-from-bottom"
+        >
+          <h2 class="display-6 fw-bold font-monospace">{sinkRepair}</h2>
+          <p class="fs-3 lead">
+            {sinkRepairDesc}
+          </p>
+        </div>
+        <div
+          class="col-lg d-flex flex-column justify-content-center order-first order-lg-first p-4 column-from-top"
+        >
+          <img
+            src="/sink5-desktop.webp"
+            width="100%"
+            class="d-none d-lg-block rounded"
+            alt="Sink 5"
+          />
+          <img
+            src="/sink5-tabletmobile.webp"
+            width="100%"
+            class="d-lg-none rounded"
+            alt="Sink 5"
+          />
+        </div>
+      </div>
+      <div class="row servicesRow offeringRow">
+        <div
+          class="col-lg d-flex flex-column justify-content-center p-5 order-last order-lg-first column-from-bottom"
+        >
+          <h2 class="display-6 fw-bold font-monospace">{industrialSinks}</h2>
+          <p class="fs-3 lead">
+            {industrialSinksDesc}
+          </p>
+        </div>
+        <div
+          class="col-lg d-flex flex-column justify-content-center order-first order-lg-last p-4 column-from-top"
+        >
+          <img
+            src="/sink6-desktop.webp"
+            width="100%"
+            class="d-none d-lg-block rounded"
+            alt="Sink 6"
+          />
+          <img
+            src="/sink6-tabletmobile.webp"
+            width="100%"
+            class="d-lg-none rounded"
+            alt="Sink 6"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container">
+      <hr />
+      <div class="servicesRow offeringRow display-1 font-monospace text-center">
+        <div class="column-from-bottom">
+          <p class="mb-0">{needExpertise}</p>
+          <a class="btn gradientButton btn-lg" href={`/${locale}/contact/`}
+            >{contactUs} <i class="bi bi-arrow-right"></i></a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

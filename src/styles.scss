@@ -1,0 +1,207 @@
+$primary: #008080;
+@import "bootstrap/scss/bootstrap";
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+font-monospace {
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+
+@media (min-width: 992px) { /* md breakpoint */
+    .align-items-center-lg {
+        align-items: center;
+    }
+}
+
+
+/* RTL specific margin flipping */
+html[dir="rtl"] .dropdown-toggle::after {
+    margin-left: 0;
+    margin-right: 0.255em!important; /* Flip margin to the right */
+}
+html[dir="rtl"] .navbar-nav {
+    padding-right:0;
+}
+html[dir="rtl"] .navbar-brand {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+
+/* Margin Start (ms-*) to Margin End in RTL */
+html[dir="rtl"] .ms-1 { margin-left: 0; margin-right: 0.25rem; }
+html[dir="rtl"] .ms-2 { margin-left: 0; margin-right: 0.5rem; }
+html[dir="rtl"] .ms-3 { margin-left: 0; margin-right: 1rem; }
+html[dir="rtl"] .ms-4 { margin-left: 0; margin-right: 1.5rem; }
+html[dir="rtl"] .ms-5 { margin-left: 0; margin-right: 3rem; }
+
+/* Margin End (me-*) to Margin Start in RTL */
+html[dir="rtl"] .me-1 { margin-right: 0; margin-left: 0.25rem; }
+html[dir="rtl"] .me-2 { margin-right: 0; margin-left: 0.5rem; }
+html[dir="rtl"] .me-3 { margin-right: 0; margin-left: 1rem; }
+html[dir="rtl"] .me-4 { margin-right: 0; margin-left: 1.5rem; }
+html[dir="rtl"] .me-5 { margin-right: 0; margin-left: 3rem; }
+
+/* Padding Start (ps-*) to Padding End in RTL */
+html[dir="rtl"] .ps-1 { padding-left: 0; padding-right: 0.25rem; }
+html[dir="rtl"] .ps-2 { padding-left: 0; padding-right: 0.5rem; }
+html[dir="rtl"] .ps-3 { padding-left: 0; padding-right: 1rem; }
+html[dir="rtl"] .ps-4 { padding-left: 0; padding-right: 1.5rem; }
+html[dir="rtl"] .ps-5 { padding-left: 0; padding-right: 3rem; }
+
+/* Padding End (pe-*) to Padding Start in RTL */
+html[dir="rtl"] .pe-1 { padding-right: 0; padding-left: 0.25rem; }
+html[dir="rtl"] .pe-2 { padding-right: 0; padding-left: 0.5rem; }
+html[dir="rtl"] .pe-3 { padding-right: 0; padding-left: 1rem; }
+html[dir="rtl"] .pe-4 { padding-right: 0; padding-left: 1.5rem; }
+html[dir="rtl"] .pe-5 { padding-right: 0; padding-left: 3rem; }
+
+
+html[dir="rtl"] .dropdown-menu-end[data-bs-popper] {
+    right:auto;
+    left:0;
+}
+
+html[dir="rtl"] .modal-header {
+    justify-content: space-between;
+}
+html[dir="rtl"] .modal-header .btn-close {
+    margin: 0!important;
+}
+html[dir="rtl"] .modal-dialog form .form-check-input {
+    float: right;
+    margin-left: 0.5em; 
+}
+html[dir="rtl"] .cookiesHelpText {
+    margin-right: 1.5em;
+}
+
+#cb-cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999; border-radius: 0; display: none; }
+
+.video-section {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+  }
+
+  .video-section video {
+    position: absolute;
+    top: 0; /* Align the top of the video to the top of the viewport */
+    left: 0; /* Align the left of the video to the left of the viewport */
+    min-width: 100vw; /* Make sure the video covers the full width of the viewport */
+    min-height: 100vh; /* Ensure the video fills the height of the viewport */
+    width: 100%; /* Keep the width at 100% */
+    height: auto; /* Maintain the aspect ratio */
+    z-index: 0;
+    object-fit: cover; /* Ensure the video covers the entire viewport without distortion */
+  }
+
+  .overlay-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4); /* Darken the video with overlay */
+  }
+
+  #titleText {
+    z-index: 2;
+    color: white;
+  }
+  .servicesRowFirst {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+  }
+  .servicesRow {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  .hero-container {
+    padding-top: 15rem;
+    padding-bottom: 15rem;
+  }
+  .big-bottom-container {
+    padding-bottom: 15rem;
+  }
+
+  @media (max-width: 1200px) {
+    .big-bottom-container {
+      padding-bottom: 12.5rem;
+    }
+  }
+
+  #about-splash-section {
+    background-image: url("/about-splash-desktop.webp");
+    background-size: cover; /* Ensures the image covers the element */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image */
+  /* Optional: You can also set background-attachment */
+  background-attachment: fixed;
+  }
+
+  @media (max-width: 991.98px) {
+    .background-image {
+      background-image: url("/kitchensink-hero-tablet.webp");
+    }
+    #about-splash-section {
+      background-image: url("/about-splash-tablet.webp");
+    }
+    .hero-container {
+      padding-top: 10rem;
+      padding-bottom: 10rem;
+    }
+    .big-bottom-container {
+      padding-bottom: 10rem;
+    }
+    
+  }
+
+  @media (max-width: 767.98px) {
+    .background-image {
+      background-image: url("/kitchensink-hero-mobile.webp");
+    }
+    #about-splash-section {
+      background-image: url("/about-splash-mobile.webp");
+    }
+    .hero-container {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+    .big-bottom-container {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+    .servicesRow {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+      .servicesRowFirst {
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+      }
+  }
+  .parallax-layer {
+    transform-origin: center center;
+    will-change: transform;
+  }
+
+  html[data-bs-theme="dark"] .navbar {
+    background-color: #212529 !important;
+  }
+  
+  html[data-bs-theme="light"] .navbar {
+    background-color: rgb(255, 255, 255) !important;
+  }
+  
+  .massiveNumberText {
+    font-size: 7rem;
+  }
+  .bg-black {background-color: black;}

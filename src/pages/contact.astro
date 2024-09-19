@@ -1,0 +1,96 @@
+---
+import { getLocale } from "astro-i18n-aut";
+import Layout from "../layouts/Layout.astro";
+
+const locale = getLocale(Astro.url);
+
+let title: string;
+let formTitle: string;
+let nameLabel: string;
+let emailLabel: string;
+let messageLabel: string;
+let submitButton: string;
+
+switch (locale) {
+  case "ar":
+    title = "اتصال";
+    formTitle = "اتصل بنا";
+    nameLabel = "الاسم";
+    emailLabel = "البريد الإلكتروني";
+    messageLabel = "رسالتك";
+    submitButton = "إرسال";
+    break;
+  case "de":
+    title = "Kontakt";
+    formTitle = "Kontaktieren Sie uns";
+    nameLabel = "Name";
+    emailLabel = "E-Mail";
+    messageLabel = "Nachricht";
+    submitButton = "Absenden";
+    break;
+  default:
+    title = "Contact";
+    formTitle = "Contact Us";
+    nameLabel = "Name";
+    emailLabel = "Email";
+    messageLabel = "Your Message";
+    submitButton = "Submit";
+}
+---
+
+<script>
+  import { gsap } from "gsap";
+  gsap.from("#formCard", {
+    opacity: 0, // Start fully invisible
+    duration: 3, // Duration of each individual animation
+  });
+</script>
+<Layout title={title}>
+  <div class="container pb-5 pt-3 mt-5">
+    <div
+      class="card mx-auto mt-0 mt-md-4"
+      style="max-width:40rem;"
+      id="formCard"
+    >
+      <div class="card-body p-4">
+        <h1 class="display-6 fw-bold">{formTitle}</h1>
+        <hr />
+        <form action="/submit-form" method="post">
+          <div class="mb-3">
+            <label for="name" class="form-label">{nameLabel}</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              required
+              placeholder={nameLabel}
+            />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">{emailLabel}</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              required
+              placeholder={emailLabel}
+            />
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">{messageLabel}</label>
+            <textarea
+              class="form-control"
+              id="message"
+              name="message"
+              rows="4"
+              required
+              placeholder={messageLabel}></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">{submitButton}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</Layout>
