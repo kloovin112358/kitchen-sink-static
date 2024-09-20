@@ -40,8 +40,8 @@ switch (locale) {
 
 <script>
   import { gsap } from "gsap";
-  gsap.from("#formCard", {
-    opacity: 0, // Start fully invisible
+  gsap.to("#formCard", {
+    opacity: 1, // Start fully invisible
     duration: 3, // Duration of each individual animation
   });
 </script>
@@ -49,7 +49,7 @@ switch (locale) {
   <div class="container pb-5 pt-3 mt-5">
     <div
       class="card mx-auto mt-0 mt-md-4"
-      style="max-width:40rem;"
+      style="max-width:40rem;opacity:0"
       id="formCard"
     >
       <div class="card-body p-4">

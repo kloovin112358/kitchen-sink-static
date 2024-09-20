@@ -77,7 +77,7 @@ switch (locale) {
       trigger: ".hero-container p", // Element to trigger animation
       start: "top 120%", // Start when top of element is 80% from the top of viewport
       end: "top 20%", // End when top of element is 20% from top of viewport
-      scrub: true, // Smooth scrolling effect
+      scrub: 1, // Smooth scrolling effect
       toggleActions: "play none none none", // Play the animation once when it enters the viewport
       once: true,
     },
@@ -96,7 +96,7 @@ switch (locale) {
           trigger: layer,
           start: "top bottom",
           end: "bottom top",
-          scrub: true,
+          scrub: 1,
         },
       });
     });
@@ -113,7 +113,7 @@ switch (locale) {
         trigger: textElement,
         start: "top bottom", // Animation starts when the top of the element is in view
         end: "+=80%", // Animation ends when the bottom of the element is out of view
-        scrub: true, // Link animation to scroll position
+        scrub: 1, // Link animation to scroll position
       },
     });
 
