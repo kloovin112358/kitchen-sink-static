@@ -3,7 +3,14 @@ import { getLocale } from "astro-i18n-aut";
 import Layout from "../layouts/Layout.astro";
 
 const locale = getLocale(Astro.url);
+function getLocaleOrBlank() {
+  if (locale != "en") {
+    return locale + "/";
+  }
+  return "";
+}
 
+const localeOrBlank = getLocaleOrBlank();
 let title: string;
 let splashHeader: string;
 let sinkDesign: string;
@@ -275,7 +282,9 @@ switch (locale) {
       <div class="servicesRow offeringRow display-1 font-monospace text-center">
         <div class="column-from-bottom">
           <p class="mb-0">{needExpertise}</p>
-          <a class="btn gradientButton btn-lg" href={`/${locale}/contact/`}
+          <a
+            class="btn gradientButton btn-lg"
+            href={`/${localeOrBlank}contact/`}
             >{contactUs} <i class="bi bi-arrow-right"></i></a
           >
         </div>

@@ -135,6 +135,15 @@ switch (locale) {
 
 const urlPath = new URL(Astro.url.href).pathname;
 
+function getLocaleOrBlank() {
+  if (locale != "en") {
+    return locale + "/";
+  }
+  return "";
+}
+
+const localeOrBlank = getLocaleOrBlank();
+
 // Function to get the last segment of the path
 const getLastSegment = (path) => {
   // Remove leading and trailing slashes, then split by slashes and get the last part
@@ -196,7 +205,9 @@ const { title } = Astro.props;
     <header>
       <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-          <a class="navbar-brand fw-bold" href={`/${locale}/`}>{siteTitle}</a>
+          <a class="navbar-brand fw-bold" href={`/${localeOrBlank}`}
+            >{siteTitle}</a
+          >
           <button
             class="navbar-toggler"
             type="button"
@@ -211,17 +222,17 @@ const { title } = Astro.props;
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link" href={`/${locale}/services/`}
+                <a class="nav-link" href={`/${localeOrBlank}services/`}
                   >{servicesLinkTitle}</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href={`/${locale}/about/`}
+                <a class="nav-link" href={`/${localeOrBlank}about/`}
                   >{aboutLinkTitle}</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href={`/${locale}/contact/`}
+                <a class="nav-link" href={`/${localeOrBlank}contact/`}
                   >{contactLinkTitle}</a
                 >
               </li>
@@ -408,9 +419,10 @@ const { title } = Astro.props;
               >
             </div>
             <div class="d-flex mt-3 mt-md-0">
-              <a class="nav-link" href={`/${locale}/about/`}>{aboutLinkTitle}</a
+              <a class="nav-link" href={`/${localeOrBlank}about/`}
+                >{aboutLinkTitle}</a
               >
-              <a class="nav-link ms-3" href={`/${locale}/contact/`}
+              <a class="nav-link ms-3" href={`/${localeOrBlank}contact/`}
                 >{contactLinkTitle}</a
               >
               <button

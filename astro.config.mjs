@@ -21,6 +21,7 @@ export default defineConfig({
     i18n({
       locales,
       defaultLocale,
+      redirectDefaultLocale: false, // Ensure this is set to false
     }),
     sitemap({
       i18n: {
@@ -30,4 +31,9 @@ export default defineConfig({
       filter: filterSitemapByDefaultLocale({ defaultLocale }),
     }),
   ],
+});
+console.log({
+  locales,
+  defaultLocale,
+  redirectDefaultLocale: i18n().redirectDefaultLocale,
 });

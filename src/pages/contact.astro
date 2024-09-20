@@ -55,7 +55,7 @@ switch (locale) {
       <div class="card-body p-4">
         <h1 class="display-6 fw-bold">{formTitle}</h1>
         <hr />
-        <form action="/submit-form" method="post">
+        <form action="" method="post">
           <div class="mb-3">
             <label for="name" class="form-label">{nameLabel}</label>
             <input
@@ -65,6 +65,7 @@ switch (locale) {
               name="name"
               required
               placeholder={nameLabel}
+              autocomplete="name"
             />
           </div>
           <div class="mb-3">
@@ -76,6 +77,7 @@ switch (locale) {
               name="email"
               required
               placeholder={emailLabel}
+              autocomplete="email"
             />
           </div>
           <div class="mb-3">
