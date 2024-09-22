@@ -57,9 +57,40 @@ switch (locale) {
 }
 ---
 
+<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+<style>
+  .video-section {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+  }
+  .overlay-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4); /* Darken the video with overlay */
+  }
+  .bigOverflowVideoContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 100vh;
+    width: max(100vw, calc(100vh * (16 / 9)));
+  }
+</style>
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import Plyr from "plyr";
+
   gsap.registerPlugin(ScrollTrigger);
   gsap.from("#titleText", {
     delay: 2,
@@ -130,11 +161,42 @@ switch (locale) {
 
   // Apply the animation
   animateText();
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const player = new Plyr("#player", {
+      autoplay: true,
+      loop: { active: true },
+      muted: true,
+      controls: [],
+    });
+
+    // Listen to the timeupdate event to check the current time
+    player.on("timeupdate", (event) => {
+      const currentTime = player.currentTime;
+      const duration = player.duration;
+
+      // If close to the end, reset to the start for smooth looping
+      if (duration - currentTime <= 0.2) {
+        player.currentTime = 0; // Rewind to start
+        player.play(); // Ensure autoplay continues
+      }
+    });
+  });
 </script>
 <Layout title={title}>
   <section class="video-section">
-    <video src="/kitchen_sink_video.mp4" autoplay loop muted playsinline
-    ></video>
+    <div class="bigOverflowVideoContainer">
+      <div class="plyr__video-embed" id="player" style="width:100%;height:100%">
+        <iframe
+          src="https://www.youtube.com/embed/kkqOTES8MKE?origin=https://plyr.io&iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1&autoplay=1&mute=1"
+          allowfullscreen
+          allowtransparency
+          allow="autoplay"
+          frameborder="0"
+          style="width:100%;height:100%"
+          id="heroVideo"></iframe>
+      </div>
+    </div>
     <div class="overlay-content">
       <h1 class="display-1 fw-bold pb-3 text-center" id="titleText">
         {heroText}

@@ -32,8 +32,3 @@ export default defineConfig({
     }),
   ],
 });
-console.log({
-  locales,
-  defaultLocale,
-  redirectDefaultLocale: i18n().redirectDefaultLocale,
-});

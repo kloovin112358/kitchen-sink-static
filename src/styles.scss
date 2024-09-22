@@ -79,39 +79,6 @@ html[dir="rtl"] .cookiesHelpText {
 }
 
 #cb-cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999; border-radius: 0; display: none; }
-
-.video-section {
-    position: relative;
-    height: 100vh; /* Full viewport height */
-    overflow: hidden;
-  }
-
-  .video-section video {
-    position: absolute;
-    top: 0; /* Align the top of the video to the top of the viewport */
-    left: 0; /* Align the left of the video to the left of the viewport */
-    min-width: 100vw; /* Make sure the video covers the full width of the viewport */
-    min-height: 100vh; /* Ensure the video fills the height of the viewport */
-    width: 100%; /* Keep the width at 100% */
-    height: auto; /* Maintain the aspect ratio */
-    z-index: 0;
-    object-fit: cover; /* Ensure the video covers the entire viewport without distortion */
-  }
-
-  .overlay-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.4); /* Darken the video with overlay */
-  }
-
   #titleText {
     z-index: 2;
     color: white;
@@ -129,12 +96,12 @@ html[dir="rtl"] .cookiesHelpText {
     padding-bottom: 15rem;
   }
   .big-bottom-container {
-    padding-bottom: 15rem;
+    padding-bottom: 10rem;
   }
 
   @media (max-width: 1200px) {
     .big-bottom-container {
-      padding-bottom: 12.5rem;
+      padding-bottom: 6rem;
     }
   }
 
@@ -145,6 +112,19 @@ html[dir="rtl"] .cookiesHelpText {
   background-position: center; /* Centers the image */
   /* Optional: You can also set background-attachment */
   background-attachment: fixed;
+  }
+
+  .massiveNumberText {
+    font-size: 7rem;
+  }
+
+  @media (max-width: 1200px) {
+    #about-splash-section {
+    background-attachment: scroll;
+    }
+    .massiveNumberText {
+      font-size: 5.5rem;
+    }
   }
 
   @media (max-width: 991.98px) {
@@ -161,7 +141,9 @@ html[dir="rtl"] .cookiesHelpText {
     .big-bottom-container {
       padding-bottom: 10rem;
     }
-    
+    .massiveNumberText {
+      font-size: 4rem;
+    }
   }
 
   @media (max-width: 767.98px) {
@@ -201,7 +183,4 @@ html[dir="rtl"] .cookiesHelpText {
     background-color: rgb(255, 255, 255) !important;
   }
   
-  .massiveNumberText {
-    font-size: 7rem;
-  }
   .bg-black {background-color: black;}
